@@ -197,3 +197,13 @@ As respostas de erro seguem o formato:
   "error": "mensagem"
 }
 ```
+
+## Observacoes
+
+- Este projeto usa SQLite para facilitar a execucao local sem dependencia externa de banco.
+- O campo `dataCriacao` e convertido para formato ISO UTC (`toISOString`) no momento do mapeamento.
+- Se `dataCriacao` nao for enviado no payload, a API preenche automaticamente com data/hora atual.
+- As credenciais padrao (`admin` / `123456`) sao apenas para desenvolvimento local.
+- Para uso em ambiente real, altere `JWT_SECRET`, `AUTH_USERNAME` e `AUTH_PASSWORD` no arquivo `.env`.
+- O endpoint `/health` e publico; os endpoints `/order/*` exigem token JWT Bearer.
+- A documentacao Swagger pode ser usada para testar os endpoints diretamente em `/api-docs`.
